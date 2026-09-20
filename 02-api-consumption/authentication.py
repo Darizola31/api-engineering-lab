@@ -19,7 +19,7 @@ api_key = return_key()
 
 
 #key variables
-headers = {'X-API-Key': api_key}
+headers = {"Authorization": "Bearer " + api_key}
 
 
 #from the server
@@ -31,7 +31,8 @@ extract = data.get("headers")
 
 #variable check
 expected = "super-secret-demo-key"
-returned = extract.get("X-Api-Key")
-result = authenticate(expected, returned)
+returned = extract.get("Authorization")
+token = returned.split(" ")[1]
+result = authenticate(expected, token)
 
 print(result)
