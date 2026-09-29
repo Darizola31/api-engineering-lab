@@ -27,3 +27,4 @@ for x in data:
 print("page:", page)
 print("records:", len(data))
 print("IDs:", records)
+print(response1.headers)
